@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bluearc-ui/static/css/main.95d6444f.css",
-    "main.js": "/bluearc-ui/static/js/main.318f61d2.js",
+    "main.js": "/bluearc-ui/static/js/main.f3b7ab7c.js",
     "static/js/453.3151a42f.chunk.js": "/bluearc-ui/static/js/453.3151a42f.chunk.js",
     "static/media/fa-solid-900.woff2": "/bluearc-ui/static/media/fa-solid-900.0ae4e6254fc19607c79e.woff2",
     "static/media/fa-brands-400.woff2": "/bluearc-ui/static/media/fa-brands-400.e7461d69dbbff1310a5c.woff2",
@@ -9,11 +9,11 @@
     "static/media/fa-v4compatibility.woff2": "/bluearc-ui/static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
     "index.html": "/bluearc-ui/index.html",
     "main.95d6444f.css.map": "/bluearc-ui/static/css/main.95d6444f.css.map",
-    "main.318f61d2.js.map": "/bluearc-ui/static/js/main.318f61d2.js.map",
+    "main.f3b7ab7c.js.map": "/bluearc-ui/static/js/main.f3b7ab7c.js.map",
     "453.3151a42f.chunk.js.map": "/bluearc-ui/static/js/453.3151a42f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95d6444f.css",
-    "static/js/main.318f61d2.js"
+    "static/js/main.f3b7ab7c.js"
   ]
 }
