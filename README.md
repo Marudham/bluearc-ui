@@ -1,6 +1,6 @@
 # Bluearc - Business Growth Solutions
 
-![Bluearc Logo](public/blueark.jpeg)
+<img src="public/blueark.jpeg" alt="Bluearc Logo" width="200" height="200" />
 
 A modern, responsive React.js website for Bluearc - a professional B2B services company specializing in lead generation, web development, and data analysis solutions.
 
