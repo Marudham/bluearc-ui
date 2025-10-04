@@ -14,7 +14,7 @@ const WhyUs = () => {
   return (
     <section id='why-us' className="why-us">
       <div className="container">
-        <h2>🌟 Why Work With Bluearc?</h2>
+        <h2>🌟 Why Work With BlueArc?</h2>
         <div className="benefits-grid">
           {benefits.map((benefit, index) => (
             <div key={index} className="benefit-item">

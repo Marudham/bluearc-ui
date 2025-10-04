@@ -6,17 +6,20 @@ import Services from './components/Services';
 import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <Services />
-      <WhyUs />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Header />
+        <Hero />
+        <Services />
+        <WhyUs />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

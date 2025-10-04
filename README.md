@@ -1,12 +1,12 @@
-# Bluearc - Business Growth Solutions
+# BlueArc - Business Growth Solutions
 
-<img src="public/blueark.jpeg" alt="Bluearc Logo" width="200" height="200" />
+<img src="public/blueark.jpeg" alt="BlueArc Logo" width="200" height="200" />
 
-A modern, responsive React.js website for Bluearc - a professional B2B services company specializing in lead generation, web development, and data analysis solutions.
+A modern, responsive React.js website for BlueArc - a professional B2B services company specializing in lead generation, web development, and data analysis solutions.
 
-## 🚀 About Bluearc
+## 🚀 About BlueArc
 
-Bluearc helps businesses accelerate growth through targeted client acquisition, data-driven insights, and professional web development. We provide comprehensive solutions to help you reach your ideal customers and scale your operations efficiently.
+BlueArc helps businesses accelerate growth through targeted client acquisition, data-driven insights, and professional web development. We provide comprehensive solutions to help you reach your ideal customers and scale your operations efficiently.
 
 ## ✨ Features
 

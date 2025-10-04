@@ -7,18 +7,19 @@ const Contact = () => {
       <div className="container">
         <h2>📞 Contact With Us</h2>
         <p>Ready to scale your business with quality leads and actionable insights?</p>
-        {/* <a href="#contact" className="cta-button large">
-          Contact With Us
-        </a> */}
         
         <div className="contact-info">
           <div className="contact-item">
             <i className="fas fa-envelope"></i>
-            <span>bluearc2026@gmail.com</span>
+            <a href="mailto:bluearc2026@gmail.com" className="contact-link">
+              bluearc2026@gmail.com
+            </a>
           </div>
           <div className="contact-item">
             <i className="fas fa-phone"></i>
-            <span>+91 96267 95150</span>
+            <a href="tel:+919626795150" className="contact-link">
+              +91 96267 95150
+            </a>
           </div>
         </div>
       </div>

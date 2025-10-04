@@ -1,16 +1,18 @@
 .header {
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: var(--header-bg);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: var(--header-bg);
+  backdrop-filter: blur(20px);
 }
 
 .nav {
@@ -29,15 +31,31 @@
 }
 
 .logo-image {
-  height: 45px;
+  height: 50px;
   width: auto;
-  border-radius: 4px;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
 }
 
 .logo h2 {
-  color: #2563eb;
+  color: var(--accent);
   font-size: 1.8rem;
   margin: 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-links {
@@ -48,30 +66,184 @@
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  position: relative;
 }
 
 .nav-links a:hover {
-  color: #2563eb;
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.1);
 }
 
-/* Responsive */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.theme-toggle {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
+  transform: rotate(15deg) scale(1.1);
+  border-color: var(--accent);
+}
+
+.theme-title {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.theme-toggle-container:hover .theme-title {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Navigation */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  
   .nav {
     padding: 1rem;
+    position: relative;
   }
-  
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--header-bg);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+  }
+
+  .nav-links a:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .theme-title {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+  }
+
   .logo-image {
-    height: 32px;
+    height: 35px;
   }
-  
+
   .logo h2 {
     font-size: 1.5rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .nav-right {
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+  }
+
+  .logo h2 {
+    font-size: 1.3rem;
   }
 }

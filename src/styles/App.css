@@ -1,15 +1,93 @@
+/* CSS Variables for Themes */
+:root {
+  /* Light Theme */
+  --light-bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --light-bg-secondary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --light-bg-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --light-bg-contact: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --light-text-primary: #1e293b;
+  --light-text-secondary: #64748b;
+  --light-accent: #2563eb;
+  --light-accent-hover: #1d4ed8;
+  --light-card-bg: rgba(255, 255, 255, 0.9);
+  --light-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --light-border: rgba(226, 232, 240, 0.8);
+  --light-header-bg: rgba(255, 255, 255, 0.95);
+  
+  /* Dark Theme */
+  --dark-bg-primary: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --dark-bg-secondary: linear-gradient(135deg, #1e293b 0%, #312e81 50%);
+  --dark-bg-hero: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
+  --dark-bg-contact: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-accent: #60a5fa;
+  --dark-accent-hover: #93c5fd;
+  --dark-card-bg: rgba(30, 41, 59, 0.8);
+  --dark-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --dark-border: rgba(51, 65, 85, 0.8);
+  --dark-header-bg: rgba(15, 23, 42, 0.95);
+}
+
+/* Default to Dark Theme */
+body {
+  background: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+  transition: all 0.5s ease;
+  min-height: 100vh;
+}
+
+/* Light Theme */
+.light-theme {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-hero: var(--light-bg-hero);
+  --bg-contact: var(--light-bg-contact);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --accent: var(--light-accent);
+  --accent-hover: var(--light-accent-hover);
+  --card-bg: var(--light-card-bg);
+  --card-shadow: var(--light-card-shadow);
+  --border: var(--light-border);
+  --header-bg: var(--light-header-bg);
+}
+
+/* Dark Theme */
+.dark-theme {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-hero: var(--dark-bg-hero);
+  --bg-contact: var(--dark-bg-contact);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --accent: var(--dark-accent);
+  --accent-hover: var(--dark-accent-hover);
+  --card-bg: var(--dark-card-bg);
+  --card-shadow: var(--dark-card-shadow);
+  --border: var(--dark-border);
+  --header-bg: var(--dark-header-bg);
+}
+
 /* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background 0.5s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
   overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Ensure gradients animate smoothly */
+body, .App, .services, .why-us, .footer {
+  transition: background 0.8s ease;
 }
 
 .container {
@@ -26,6 +104,7 @@ html {
 /* App-wide styles */
 .App {
   text-align: left;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
-
-/* Common component styles will go here */

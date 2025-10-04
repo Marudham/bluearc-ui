@@ -1,13 +1,13 @@
 .why-us {
   padding: 80px 0;
-  background: white;
+  background: var(--bg-primary);
 }
 
 .why-us h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 .benefits-grid {
@@ -22,27 +22,36 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1.5rem;
-  background: #f8fafc;
-  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
   border-left: 4px solid #10b981;
-  transition: transform 0.3s, background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
 }
 
 .benefit-item:hover {
-  transform: translateX(5px);
-  background: #f1f5f9;
+  transform: translateX(8px) translateY(-5px);
+  background: var(--card-bg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .benefit-item i {
   color: #10b981;
-  font-size: 1.2rem;
-  min-width: 20px;
+  font-size: 1.5rem;
+  min-width: 25px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover i {
+  transform: scale(1.2);
 }
 
 .benefit-item span {
-  color: #374151;
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -60,6 +69,6 @@
   }
   
   .benefit-item {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 }
