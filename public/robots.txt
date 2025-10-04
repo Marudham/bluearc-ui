@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://bluearc.com/sitemap.xml
+Sitemap: https://bluearc.com/sitemap-index.xml
+
+# Allow all crawlers
+Disallow: /private/
+Disallow: /admin/
