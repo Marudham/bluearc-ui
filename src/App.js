@@ -7,6 +7,7 @@ import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import ClientVoice from './components/ClientVoice'; 
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Hero />
         <Services />
         <WhyUs />
+        <ClientVoice />
         <Contact />
         <Footer />
       </div>

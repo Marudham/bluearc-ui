@@ -43,6 +43,7 @@
 
 .logo h2 {
   color: var(--accent);
+  /* color: #013B7A; */
   font-size: 1.8rem;
   margin: 0;
   font-weight: 700;
