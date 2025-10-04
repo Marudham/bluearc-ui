@@ -18,7 +18,7 @@ const Header = () => {
       <nav className="nav">
         <div className="logo">
           <img 
-            src="/blueark.jpeg" 
+            src={`${process.env.PUBLIC_URL}/blueark.jpeg`}
             alt="Bluearc Logo" 
             className="logo-image"
           />
