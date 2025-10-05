@@ -32,8 +32,9 @@ const Header = () => {
             src={`${process.env.PUBLIC_URL}/blueark.jpeg`} 
             alt="BlueArc Logo" 
             className="logo-image"
+            title='BlueArc'
           />
-          <h2 style={{ color: '#013B7A' }}>BlueArc</h2>
+          {/* <h2 style={{ color: '#013B7A' }}>BlueArc</h2> */}
         </div>
         
         <div className="nav-right">
