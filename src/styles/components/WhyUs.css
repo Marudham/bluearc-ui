@@ -54,6 +54,27 @@
   font-size: 1rem;
 }
 
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card-bg); /* Gray cards */
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border); /* Gray border */
+}
+
+.benefit-item:hover {
+  transform: translateX(8px) translateY(-5px);
+  background: var(--card-bg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Darker shadow */
+  border-color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .why-us {
     padding: 60px 0;

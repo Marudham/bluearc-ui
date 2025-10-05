@@ -5,7 +5,7 @@ const ClientVoice = () => {
   const clients = [
     {
       id: 1,
-      name: "Santhosh S. BE",
+      name: "Rajesh Sharma",
       title: "CEO",
       company: "FlowConnect",
       image: `${process.env.PUBLIC_URL}/flow-connect.jpeg`,
@@ -13,7 +13,7 @@ const ClientVoice = () => {
     },
     {
       id: 2,
-      name: "Sathish P",
+      name: "Priya Singh",
       title: "Entrepreneur",
       company: "Loop Hook",
       image: `${process.env.PUBLIC_URL}/loop-hook.jpeg`,

@@ -31,8 +31,9 @@
 
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, 365px);
+  gap: 15%;
+  justify-content: center;
 }
 
 .client-card {
@@ -117,6 +118,51 @@
   color: var(--accent);
   opacity: 0.5;
 }
+
+.client-card {
+  background: var(--card-bg); /* This will now be gray in dark mode */
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border); /* Gray border */
+  backdrop-filter: blur(10px);
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); /* Darker shadow for dark theme */
+  border-color: var(--accent);
+}
+
+.client-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 3px solid var(--border); /* Gray border */
+  transition: border-color 0.3s ease;
+}
+
+.client-card:hover .client-image {
+  border-color: var(--accent);
+}
+
+.client-quote {
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.7;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--border); /* Gray border */
+  transition: border-color 0.3s ease;
+}
+
+.client-card:hover .client-quote {
+  border-left-color: var(--accent);
+}
+
 
 /* Responsive styles */
 @media (max-width: 768px) {

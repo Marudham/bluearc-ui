@@ -177,6 +177,97 @@
   font-weight: 500;
 }
 
+.service-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card.expanded {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  background: var(--card-bg);
+}
+
+.service-card.expanded::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  min-width: 50px;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.15); /* Updated for dark theme */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.service-card.expanded .service-icon {
+  background: rgba(59, 130, 246, 0.25); /* Updated for dark theme */
+  transform: scale(1.05);
+}
+
+.expand-icon {
+  color: var(--accent);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.15); /* Updated for dark theme */
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card.expanded .expand-icon {
+  transform: rotate(180deg);
+  background: rgba(59, 130, 246, 0.25); /* Updated for dark theme */
+}
+
+.service-tagline {
+  color: var(--accent);
+  font-style: italic;
+  margin: 0;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.15); /* Updated for dark theme */
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  font-weight: 500;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .service-card {

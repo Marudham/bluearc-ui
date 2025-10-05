@@ -33,7 +33,7 @@ const Header = () => {
             alt="BlueArc Logo" 
             className="logo-image"
           />
-          <h2>BlueArc</h2>
+          <h2 style={{ color: '#013B7A' }}>BlueArc</h2>
         </div>
         
         <div className="nav-right">
