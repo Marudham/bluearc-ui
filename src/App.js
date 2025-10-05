@@ -8,6 +8,7 @@ import ClientVoice from './components/ClientVoice';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import ParticlesBackground from './components/ParticlesBackground';
 
 function App() {
   const [showSignature, setShowSignature] = useState(false);
@@ -47,6 +48,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
+        <ParticlesBackground />
         <Header />
         <Hero />
         <Services />

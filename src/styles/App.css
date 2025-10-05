@@ -39,10 +39,14 @@ body {
 
 /* Light Theme */
 .light-theme {
-  --bg-primary: var(--light-bg-primary);
+  /* --bg-primary: var(--light-bg-primary);
   --bg-secondary: var(--light-bg-secondary);
   --bg-hero: var(--light-bg-hero);
-  --bg-contact: var(--light-bg-contact);
+  --bg-contact: var(--light-bg-contact); */
+  --bg-primary: rgba(248, 250, 252, 0.95);
+  --bg-secondary: rgba(255, 255, 255, 0.95);
+  --bg-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+  --bg-contact: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
   --text-primary: var(--light-text-primary);
   --text-secondary: var(--light-text-secondary);
   --accent: var(--light-accent);
@@ -55,10 +59,14 @@ body {
 
 /* Dark Theme */
 .dark-theme {
-  --bg-primary: var(--dark-bg-primary);
+  /* --bg-primary: var(--dark-bg-primary);
   --bg-secondary: var(--dark-bg-secondary);
   --bg-hero: var(--dark-bg-hero);
-  --bg-contact: var(--dark-bg-contact);
+  --bg-contact: var(--dark-bg-contact); */
+   --bg-primary: rgba(0, 0, 0, 0.95);
+  --bg-secondary: rgba(10, 10, 10, 0.95);
+  --bg-hero: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  --bg-contact: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
   --text-primary: var(--dark-text-primary);
   --text-secondary: var(--dark-text-secondary);
   --accent: var(--dark-accent);
