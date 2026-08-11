@@ -9,7 +9,7 @@ const ClientVoice = () => {
       title: "CEO",
       company: "FlowConnect",
       image: `${process.env.PUBLIC_URL}/flow-connect.jpeg`,
-      quote: `"We were struggling to find accurate B2B contacts for our sales team, and most data providers gave us outdated information. After partnering with Bluearc, we received a highly targeted database with verified emails and direct phone numbers. Our outreach campaigns finally started converting, and we closed 3 new clients in the first month itself. The on-demand delivery from Bluearc saved us a lot of time too. Highly recommend if you want reliable data that actually works."`
+      quote: `"We were struggling to find accurate B2B contacts for our sales team, and most data providers gave us outdated information. After partnering with BlueArk, we received a highly targeted database with verified emails and direct phone numbers. Our outreach campaigns finally started converting, and we closed 3 new clients in the first month itself. The on-demand delivery from BlueArk saved us a lot of time too. Highly recommend if you want reliable data that actually works."`
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const ClientVoice = () => {
       title: "Entrepreneur",
       company: "Loop Hook",
       image: `${process.env.PUBLIC_URL}/loop-hook.jpeg`,
-      quote: `"Our business had plenty of data but no clarity on what it actually meant. Bluearc helped us build custom BI dashboards in Tableau that track our KPIs in real time. We can now monitor sales performance, spot trends early, and make faster decisions. Their forecasting insights also helped us plan the next quarter more effectively. With Bluearc’s support, we finally understand our numbers, and that has directly improved our growth strategy."`
+      quote: `"Our business had plenty of data but no clarity on what it actually meant. BlueArk helped us build custom BI dashboards in Tableau that track our KPIs in real time. We can now monitor sales performance, spot trends early, and make faster decisions. Their forecasting insights also helped us plan the next quarter more effectively. With BlueArk’s support, we finally understand our numbers, and that has directly improved our growth strategy."`
     }
   ];
 

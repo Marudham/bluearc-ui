@@ -90,9 +90,119 @@
   transform: translateY(-1px);
 }
 
+/* Contact form */
+.contact-form {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.form-honeypot {
+  display: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 1.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #64748b;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+}
+
+.form-submit-button {
+  display: block;
+  width: 100%;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  color: #1e293b;
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.form-submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+}
+
+.form-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-status-success {
+  color: #d1fae5;
+}
+
+.form-status-error {
+  color: #fecaca;
+}
+
 /* Add a CTA button similar to hero */
 .contact-cta {
   margin-top: 2rem;
+}
+
+.contact-cta h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.schedule-subtext {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
 .contact-cta-button {
@@ -155,5 +265,15 @@
   .contact-cta-button {
     padding: 10px 25px;
     font-size: 0.95rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
   }
 }

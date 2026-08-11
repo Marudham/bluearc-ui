@@ -12,7 +12,7 @@ const Services = () => {
       description: 'We help you acquire new clients faster through highly targeted B2B outreach.',
       features: [
         'Verified C-level & decision-maker contacts',
-        'Customized lead lists by industry & region',
+        'Customized lead lists as per ICP',
         'LinkedIn & email outreach support',
         'Appointment setting & meeting arrangements'
       ],

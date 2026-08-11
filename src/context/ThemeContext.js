@@ -15,7 +15,7 @@ export const ThemeProvider = ({ children }) => {
   const [themeTitle, setThemeTitle] = useState('Switch to Light Mode');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('bluearc-theme');
+    const savedTheme = localStorage.getItem('blueark-theme');
     if (savedTheme) {
       const isDark = savedTheme === 'dark';
       setIsDarkTheme(isDark);
@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
     setIsDarkTheme(prev => {
       const newTheme = !prev;
       setThemeTitle(newTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode');
-      localStorage.setItem('bluearc-theme', newTheme ? 'dark' : 'light');
+      localStorage.setItem('blueark-theme', newTheme ? 'dark' : 'light');
       return newTheme;
     });
   };
