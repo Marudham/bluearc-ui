@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab too
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.gate.outputs.should_deploy }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: CI=false npm run build
+
+      - name: Check for deploy trigger in commit message
+        id: gate
+        run: |
+          MSG=$(cat <<'EOF'
+          ${{ github.event.head_commit.message }}
+          EOF
+          )
+          if echo "$MSG" | grep -qiE -- '--deploy|force deploy'; then
+            echo "Trigger phrase found — will deploy."
+            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No trigger phrase — build-only run, skipping deploy."
+            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload Pages artifact
+        if: steps.gate.outputs.should_deploy == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.should_deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
