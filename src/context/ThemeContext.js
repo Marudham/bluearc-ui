@@ -26,8 +26,8 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = () => {
     setIsDarkTheme(prev => {
       const newTheme = !prev;
-      setThemeTitle(newTheme ? 'Switch to Light Mode' : 'Switch to Dark Mode');
-      localStorage.setItem('blueark-theme', newTheme ? 'dark' : 'light');
+      setThemeTitle(newTheme ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+      localStorage.setItem('blueark-theme', newTheme ? 'light' : 'dark');
       return newTheme;
     });
   };
