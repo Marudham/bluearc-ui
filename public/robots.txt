@@ -1,8 +1,9 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-
 # Allow all crawlers
 Disallow: /private/
 Disallow: /admin/
+
+# Sitemaps
+Sitemap: https://blueark.co.in/sitemap.xml
