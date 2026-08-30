@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/components/Header.css';
 import { useTheme } from '../context/ThemeContext';
+import SECTIONS from '../sectionsConfig';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,11 +41,11 @@ const Header = () => {
         
         <div className="nav-right">
           <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            <li><a href="#home" onClick={handleNavLinkClick}>Home</a></li>
-            <li><a href="#services" onClick={handleNavLinkClick}>Services</a></li>
-            <li><a href="#why-us" onClick={handleNavLinkClick}>Why Us?</a></li>
-            {/* <li><a href="#clients" onClick={handleNavLinkClick}>Voice of Our Clients</a></li> */}
-            <li><a href="#contact" onClick={handleNavLinkClick}>Contact</a></li>
+            {SECTIONS.map((section) => (
+              <li key={section.path}>
+                <Link to={section.path} onClick={handleNavLinkClick}>{section.label}</Link>
+              </li>
+            ))}
           </ul>
           
           <div className="theme-toggle-container">

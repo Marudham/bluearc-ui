@@ -53,6 +53,34 @@ const Services = () => {
         'Forecasting & trend analysis'
       ],
       tagline: 'Smarter insights, better decisions.'
+    },
+    {
+      icon: 'fab fa-facebook',
+      title: 'Meta Ads Service',
+      description: 'Data-driven Facebook & Instagram ad campaigns that put your business in front of the right buyers.',
+      features: [
+        'Campaign strategy & audience targeting',
+        'Ad creative & copywriting',
+        'Facebook & Instagram campaign setup',
+        'Budget management & performance optimization'
+      ],
+      tagline: 'Precision-targeted ads that convert.'
+    },
+    {
+      icon: 'fas fa-rocket',
+      title: 'Demand Generation',
+      description: 'Build awareness, engage the right prospects, and turn market interest into qualified leads and sales opportunities.',
+      features: [
+        'Target audience & ICP identification',
+        'B2B lead generation',
+        'Email & cold outreach campaigns',
+        'Meta & LinkedIn advertising',
+        'Lead nurturing campaigns',
+        'Content-driven demand creation',
+        'MQL generation',
+        'Campaign performance tracking & optimization'
+      ],
+      tagline: 'Turning market interest into revenue.'
     }
   ];
 
