@@ -67,9 +67,12 @@ const ParticlesBackground = () => {
       }
 
       draw() {
-        ctx.fillStyle = isDarkTheme 
+        // Dark theme: soft white particles. Light theme: a faint navy tint
+        // (brand color) instead of fully transparent, so the effect is
+        // actually visible in both themes rather than a light-mode no-op.
+        ctx.fillStyle = isDarkTheme
           ? `rgba(255, 255, 255, ${this.opacity})`
-          : `rgba(0, 0, 0, 0)`;
+          : `rgba(10, 42, 102, ${this.opacity * 0.5})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();

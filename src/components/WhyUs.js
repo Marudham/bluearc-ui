@@ -14,10 +14,15 @@ const WhyUs = () => {
   return (
     <section id='why-us' className="why-us">
       <div className="container">
-        <h2>🌟 Why Work With BlueArk?</h2>
+        <p className="section-eyebrow reveal">Why BlueArk</p>
+        <h2 className="reveal">Why Work With BlueArk?</h2>
         <div className="benefits-grid">
           {benefits.map((benefit, index) => (
-            <div key={index} className="benefit-item">
+            <div
+              key={index}
+              className="benefit-item reveal"
+              style={{ '--reveal-delay': `${Math.min(index, 5) * 70}ms` }}
+            >
               <i className="fas fa-check-circle"></i>
               <span>{benefit}</span>
             </div>

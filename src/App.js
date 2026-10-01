@@ -11,12 +11,18 @@ import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import ParticlesBackground from './components/ParticlesBackground';
 import useSectionRouting from './hooks/useSectionRouting';
+import useScrollReveal from './hooks/useScrollReveal';
 import SECTIONS from './sectionsConfig';
+import ProductPage from './components/product/ProductPage';
+import DemandGenLandingPage from './components/landing/DemandGenLandingPage';
+import ArkMailLandingPage from './components/landing/ArkMailLandingPage';
+import CampaignAssetsIndex from './components/campaignAssets/CampaignAssetsIndex';
 
 // Every route renders the same continuous-scroll page; useSectionRouting
 // scrolls to (and updates the URL/title for) whichever section is active.
 const PageLayout = () => {
   useSectionRouting();
+  useScrollReveal();
 
   return (
     <>
@@ -75,6 +81,10 @@ function App() {
             {SECTIONS.map((section) => (
               <Route key={section.path} path={section.path} element={<PageLayout />} />
             ))}
+            <Route path="/product" element={<ProductPage />} />
+            <Route path="/landing/demand-generation" element={<DemandGenLandingPage />} />
+            <Route path="/landing/arkmail" element={<ArkMailLandingPage />} />
+            <Route path="/campaign-assets" element={<CampaignAssetsIndex />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 

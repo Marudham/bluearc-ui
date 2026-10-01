@@ -1,80 +1,69 @@
-/* CSS Variables for Themes */
+/* ============================================================
+   Design tokens
+   Palette is grounded in the real BlueArk/ArkMail arch logo (deep
+   navy) paired with a teal accent for CTAs/interactive states —
+   replaces the earlier generic purple/blue-gradient + amber-button
+   theme. Component stylesheets consume these variables; add new
+   color/spacing/shadow values here, not inline in a component.
+   ============================================================ */
 :root {
-  /* Light Theme (Keep existing) */
-  --light-bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  --light-bg-secondary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-  --light-bg-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --light-bg-contact: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --light-text-primary: #1e293b;
-  --light-text-secondary: #64748b;
-  --light-accent: #2563eb;
-  --light-accent-hover: #1d4ed8;
-  --light-card-bg: rgba(255, 255, 255, 0.9);
-  --light-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --light-border: rgba(226, 232, 240, 0.8);
-  --light-header-bg: rgba(255, 255, 255, 0.95);
-  
-  /* Dark Theme - True Black & Gray */
-  --dark-bg-primary: #000000; /* Pure black */
-  --dark-bg-secondary: #0a0a0a; /* Very dark gray */
-  --dark-bg-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); /* Black to dark gray */
-  --dark-bg-contact: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); /* Black to dark gray */
-  --dark-text-primary: #ffffff; /* Pure white */
-  --dark-text-secondary: #a0a0a0; /* Light gray */
-  --dark-accent: #3b82f6; /* Bright blue for contrast */
-  --dark-accent-hover: #60a5fa; /* Lighter blue */
-  --dark-card-bg: #1a1a1a; /* Dark gray cards */
-  --dark-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Deeper shadows */
-  --dark-border: #333333; /* Medium gray borders */
-  --dark-header-bg: rgba(0, 0, 0, 0.95); /* Pure black with transparency */
-}
+  --font-display: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-/* Default to Dark Theme */
-body {
-  background: var(--dark-bg-primary);
-  color: var(--dark-text-primary);
-  transition: all 0.5s ease;
-  min-height: 100vh;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --success: #10b981;
+  --success-soft: rgba(16, 185, 129, 0.12);
 }
 
 /* Light Theme */
 .light-theme {
-  /* --bg-primary: var(--light-bg-primary);
-  --bg-secondary: var(--light-bg-secondary);
-  --bg-hero: var(--light-bg-hero);
-  --bg-contact: var(--light-bg-contact); */
-  --bg-primary: rgba(248, 250, 252, 0.95);
-  --bg-secondary: rgba(255, 255, 255, 0.95);
-  --bg-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
-  --bg-contact: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
-  --text-primary: var(--light-text-primary);
-  --text-secondary: var(--light-text-secondary);
-  --accent: var(--light-accent);
-  --accent-hover: var(--light-accent-hover);
-  --card-bg: var(--light-card-bg);
-  --card-shadow: var(--light-card-shadow);
-  --border: var(--light-border);
-  --header-bg: var(--light-header-bg);
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #ffffff;
+  --bg-hero: linear-gradient(135deg, #0a2a66 0%, #11407f 52%, #0f766e 100%);
+  --bg-contact: linear-gradient(135deg, #081f4d 0%, #0f766e 100%);
+  --text-primary: #101828;
+  --text-secondary: #49536b;
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-rgb: 13, 148, 136;
+  --accent-soft: rgba(13, 148, 136, 0.1);
+  --navy: #0a2a66;
+  --navy-rgb: 10, 42, 102;
+  --card-bg: #ffffff;
+  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 10px 28px rgba(16, 24, 40, 0.07);
+  --card-shadow-hover: 0 4px 10px rgba(16, 24, 40, 0.06), 0 20px 40px rgba(16, 24, 40, 0.1);
+  --border: #e4e7ec;
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --particle-rgb: 10, 42, 102;
+  --particle-opacity-mult: 0.5;
 }
 
 /* Dark Theme */
 .dark-theme {
-  /* --bg-primary: var(--dark-bg-primary);
-  --bg-secondary: var(--dark-bg-secondary);
-  --bg-hero: var(--dark-bg-hero);
-  --bg-contact: var(--dark-bg-contact); */
-   --bg-primary: rgba(0, 0, 0, 0.95);
-  --bg-secondary: rgba(10, 10, 10, 0.95);
-  --bg-hero: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
-  --bg-contact: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
-  --text-primary: var(--dark-text-primary);
-  --text-secondary: var(--dark-text-secondary);
-  --accent: var(--dark-accent);
-  --accent-hover: var(--dark-accent-hover);
-  --card-bg: var(--dark-card-bg);
-  --card-shadow: var(--dark-card-shadow);
-  --border: var(--dark-border);
-  --header-bg: var(--dark-header-bg);
+  --bg-primary: #0a0f1c;
+  --bg-secondary: #0f1626;
+  --bg-hero: linear-gradient(135deg, #03070f 0%, #0a2a66 55%, #0f766e 100%);
+  --bg-contact: linear-gradient(135deg, #03070f 0%, #0f766e 100%);
+  --text-primary: #f1f4f9;
+  --text-secondary: #99a3bb;
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-rgb: 45, 212, 191;
+  --accent-soft: rgba(45, 212, 191, 0.14);
+  --navy: #3b5fad;
+  --navy-rgb: 59, 95, 173;
+  --card-bg: #121b2e;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.35), 0 24px 50px rgba(0, 0, 0, 0.55);
+  --border: #223049;
+  --header-bg: rgba(10, 15, 28, 0.78);
+  --particle-rgb: 255, 255, 255;
+  --particle-opacity-mult: 1;
 }
 
 /* Reset and Base Styles */
@@ -82,15 +71,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background 0.5s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
 }
 
 /* Ensure gradients animate smoothly */
@@ -104,6 +97,19 @@ body, .App, .services, .why-us, .footer {
   padding: 0 20px;
 }
 
+/* Shared "eyebrow" label used above section headings (Services/WhyUs/Contact) */
+.section-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -115,6 +121,33 @@ html {
   min-height: 100vh;
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+/* ============================================================
+   Scroll-reveal utility (see src/hooks/useScrollReveal.js)
+   Element starts faded/offset, gains .is-visible once it crosses
+   the IntersectionObserver threshold. --reveal-delay lets a parent
+   stagger children (set inline per item: style={{ '--reveal-delay': '80ms' }}).
+   ============================================================ */
+.reveal {
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out) var(--reveal-delay), transform 0.6s var(--ease-out) var(--reveal-delay);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .developer-signature {
@@ -153,14 +186,14 @@ html {
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: linear-gradient(45deg, var(--accent), #ff6b6b, #4ecdc4, var(--accent));
+  background: linear-gradient(45deg, var(--accent), var(--navy), #2dd4bf, var(--accent));
   border-radius: 23px;
   z-index: -1;
   animation: borderRotate 3s linear infinite;
 }
 
 .congrats-message {
-  background: rgba(37, 99, 235, 0.1);
+  background: var(--accent-soft);
   padding: 15px;
   border-radius: 10px;
   margin: 20px 0;
@@ -210,7 +243,7 @@ html {
 .email-link:hover {
   color: var(--accent-hover);
   border-bottom: 2px dotted var(--accent);
-  background: rgba(37, 99, 235, 0.1);
+  background: var(--accent-soft);
   transform: translateY(-1px);
 }
 
@@ -238,14 +271,14 @@ html {
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .close-signature:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.4);
   background: linear-gradient(135deg, var(--accent-hover), var(--accent));
 }
 
@@ -255,14 +288,14 @@ html {
 }
 
 @keyframes slideUpBounce {
-  0% { 
+  0% {
     opacity: 0;
     transform: translateY(60px) scale(0.8);
   }
-  70% { 
+  70% {
     transform: translateY(-10px) scale(1.02);
   }
-  100% { 
+  100% {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
@@ -292,11 +325,11 @@ html {
     padding: 30px 20px;
     margin: 20px;
   }
-  
+
   .signature-content h3 {
     font-size: 1.4rem;
   }
-  
+
   .developer-name {
     font-size: 1.2rem !important;
   }

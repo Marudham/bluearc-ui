@@ -35,6 +35,15 @@ const ROUTES = [
     description:
       'Get in touch with BlueArk to discuss lead generation, B2B data, web development, or BI reporting for your business.',
   },
+  {
+    dir: 'product',
+    title: 'ArkMail by BlueArk - Email Outreach & Campaign Tracking, Free in Beta',
+    description:
+      'ArkMail is BlueArk’s real email outreach platform - send campaigns, track opens/clicks/replies, and build landing pages. Free and unlimited during Beta.',
+  },
+  // /landing/* campaign assets are deliberately NOT pre-rendered here —
+  // they're shared directly (ad platforms, email tools), not meant to be
+  // indexed/navigated as part of the core site.
 ];
 
 if (!fs.existsSync(indexPath)) {

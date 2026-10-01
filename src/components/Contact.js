@@ -64,10 +64,11 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2>📞 Contact With Us</h2>
-        <p>Ready to scale your business with quality leads and actionable insights?</p>
+        <p className="section-eyebrow reveal">Get In Touch</p>
+        <h2 className="reveal">Contact With Us</h2>
+        <p className="reveal">Ready to scale your business with quality leads and actionable insights?</p>
 
-        <div className="contact-info">
+        <div className="contact-info reveal">
           <div className="contact-item">
             <i className="fas fa-envelope"></i>
             <a href={`mailto:${CONTACT_EMAIL}`} className="contact-link">
@@ -82,7 +83,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form reveal" onSubmit={handleSubmit}>
           {/* Honeypot field for Web3Forms spam protection — kept empty by real users, hidden via CSS */}
           <input type="checkbox" name="botcheck" className="form-honeypot" tabIndex="-1" autoComplete="off" />
 
@@ -170,7 +171,7 @@ const Contact = () => {
           )}
         </form>
 
-        <div className="contact-cta">
+        <div className="contact-cta reveal">
           <h3>Or Schedule a Strategy Call</h3>
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Schedule a Strategy Call')}`}

@@ -46,6 +46,11 @@ const Header = () => {
                 <Link to={section.path} onClick={handleNavLinkClick}>{section.label}</Link>
               </li>
             ))}
+            <li>
+              <Link to="/product" className="nav-link-cta" onClick={handleNavLinkClick}>
+                ArkMail
+              </Link>
+            </li>
           </ul>
           
           <div className="theme-toggle-container">

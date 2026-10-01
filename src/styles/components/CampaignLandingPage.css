@@ -1,0 +1,97 @@
+/* Toolbar chrome only — the exportable asset itself (#export-root /
+   .cl-landing) carries its own fully self-contained <style> tag inline,
+   deliberately not using these tokens, so it stays portable when copied
+   or downloaded elsewhere. */
+.landing-asset-shell {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.landing-asset-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--header-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.landing-asset-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.landing-asset-back:hover {
+  color: var(--accent);
+}
+
+.landing-asset-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.landing-asset-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.landing-asset-toolbar-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.landing-asset-status {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.landing-asset-status-pending {
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+}
+
+.landing-asset-status-success {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.landing-asset-status-error {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 560px) {
+  .landing-asset-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .landing-asset-toolbar-actions {
+    justify-content: center;
+  }
+}

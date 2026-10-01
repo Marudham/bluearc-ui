@@ -1,19 +1,83 @@
 .footer {
   background: var(--bg-secondary);
   color: var(--text-primary);
-  text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0 2rem;
   border-top: 1px solid var(--border);
 }
 
-.footer p {
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-tagline {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-copyright {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.footer-internal-link {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-internal-link:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1.5rem 0;
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .footer-links {
+    gap: 0.5rem 1rem;
   }
 }

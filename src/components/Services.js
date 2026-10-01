@@ -95,18 +95,24 @@ const Services = () => {
   return (
     <section id="services" className="services">
       <div className="container">
-        <h2>🚀 Our Services</h2>
-        <p className="section-subtitle">
+        <p className="section-eyebrow reveal">What We Do</p>
+        <h2 className="reveal">Our Services</h2>
+        <p className="section-subtitle reveal">
           We help businesses grow with powerful client acquisition solutions and modern digital presence
         </p>
         <div className="services-grid">
           {servicesData.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              service={service} 
-              isExpanded={expandedCard === index}
-              onClick={() => handleCardClick(index)}
-            />
+            <div
+              key={index}
+              className="reveal"
+              style={{ '--reveal-delay': `${Math.min(index, 5) * 90}ms` }}
+            >
+              <ServiceCard
+                service={service}
+                isExpanded={expandedCard === index}
+                onClick={() => handleCardClick(index)}
+              />
+            </div>
           ))}
         </div>
       </div>
