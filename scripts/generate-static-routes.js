@@ -41,9 +41,30 @@ const ROUTES = [
     description:
       'ArkMail is BlueArk’s real email outreach platform - send campaigns, track opens/clicks/replies, and build landing pages. Free and unlimited during Beta.',
   },
-  // /landing/* campaign assets are deliberately NOT pre-rendered here —
-  // they're shared directly (ad platforms, email tools), not meant to be
-  // indexed/navigated as part of the core site.
+  // Campaign assets: shared as direct URLs (ad platforms, email tools), so they
+  // MUST have a real file here or GitHub Pages 404s on a direct hit (client-side
+  // navigation works regardless, which hid this once). They are not meant to be
+  // searchable, so they ship with noindex rather than being left out.
+  {
+    dir: 'landing/demand-generation',
+    noindex: true,
+    title: 'Free First Campaigns — BlueArk Demand Generation',
+    description:
+      'Launch your first B2B demand-gen campaign with BlueArk at no cost. Verified data, multi-channel outreach, and real pipeline reporting.',
+  },
+  {
+    dir: 'landing/arkmail',
+    noindex: true,
+    title: 'ArkMail Beta — Free, Unlimited Email Outreach for a Limited Time',
+    description:
+      'ArkMail is live in Beta — free and unlimited for a limited time. Real campaign sequences, deliverability tracking, and landing pages, built by BlueArk.',
+  },
+  {
+    dir: 'campaign-assets',
+    noindex: true,
+    title: 'Campaign Assets — BlueArk (Internal)',
+    description: 'Internal directory of BlueArk campaign landing pages.',
+  },
 ];
 
 if (!fs.existsSync(indexPath)) {
@@ -87,8 +108,23 @@ for (const route of ROUTES) {
       `$1${canonicalUrl}$3`
     );
 
+  if (route.noindex) {
+    html = html.replace(
+      /<meta name="robots" content=".*?"\s*\/?>/,
+      '<meta name="robots" content="noindex, nofollow" />'
+    );
+  }
+
   const outDir = path.join(buildDir, route.dir);
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
   console.log(`[generate-static-routes] wrote build/${route.dir}/index.html`);
 }
+
+// Safety net: GitHub Pages serves 404.html (with a 404 status) for any path with
+// no file. Serving the SPA shell there means a route someone forgets to list
+// above still loads for people instead of showing GitHub's "File not found"
+// page; React Router's catch-all then sends unknown URLs to the home page.
+// Crawlers still get a real 404 status for genuinely unknown paths.
+fs.writeFileSync(path.join(buildDir, '404.html'), baseHtml);
+console.log('[generate-static-routes] wrote build/404.html (SPA fallback)');
