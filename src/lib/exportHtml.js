@@ -17,36 +17,58 @@
 // right now) and inlining it as a base64 data URI makes the exported file
 // genuinely self-contained — it renders correctly immediately, with no
 // dependency on this redesign having been deployed yet.
-const imageElementToDataUrl = async (img) => {
-  const src = img.getAttribute('src');
-  if (!src || src.startsWith('data:')) return;
-  const absoluteUrl = new URL(src, window.location.origin).href;
-  const response = await fetch(absoluteUrl);
-  if (!response.ok) throw new Error(`Failed to fetch ${absoluteUrl}`);
-  const blob = await response.blob();
-  const dataUrl = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.onerror = () => reject(reader.error);
-    reader.readAsDataURL(blob);
+//
+// UPDATE (email clients): the base64 approach above renders fine in a
+// browser, but this HTML is also pasted into ArkMail campaigns and sent as
+// email, and Gmail (a) strips any <style> tag that isn't in <head> and
+// (b) refuses `data:` image URIs entirely. Result: unstyled page + broken
+// logo in Gmail, while Titan/Outlook/browsers looked fine. So the export is
+// now email-safe: images become absolute https URLs on the live site, and
+// every CSS rule is inlined onto the elements it matches. Responsive
+// @media rules can't be inlined, so those stay in a <style> in <head>
+// (which Gmail does honor).
+const SITE_ORIGIN = 'https://blueark.co.in';
+
+const toAbsoluteImageUrls = (root) => {
+  root.querySelectorAll('img').forEach((img) => {
+    const src = img.getAttribute('src');
+    if (!src || src.startsWith('data:') || /^https?:\/\//i.test(src)) return;
+    img.setAttribute('src', new URL(src, SITE_ORIGIN).href);
   });
-  img.setAttribute('src', dataUrl);
+};
+
+// Copies every plain CSS rule from the live page's <style> onto the cloned
+// elements it matches, in stylesheet order (later rules win, as in a real
+// cascade). Returns the @media text separately so it can go in <head>.
+const inlineStyles = (liveRoot, clone) => {
+  const styleEl = liveRoot.querySelector('style');
+  const mediaCss = [];
+  if (styleEl && styleEl.sheet) {
+    Array.from(styleEl.sheet.cssRules).forEach((rule) => {
+      if (rule.type === CSSRule.MEDIA_RULE) {
+        mediaCss.push(rule.cssText);
+        return;
+      }
+      if (rule.type !== CSSRule.STYLE_RULE) return;
+      const targets = Array.from(clone.querySelectorAll(rule.selectorText));
+      if (clone.matches(rule.selectorText)) targets.push(clone);
+      targets.forEach((el) => {
+        const existing = el.getAttribute('style') || '';
+        el.setAttribute('style', `${existing}${existing && !existing.trim().endsWith(';') ? ';' : ''}${rule.style.cssText}`);
+      });
+    });
+  }
+  // The <style> tag itself is replaced by inline styles + head media rules.
+  const cloneStyle = clone.querySelector('style');
+  if (cloneStyle) cloneStyle.remove();
+  return mediaCss.join('\n');
 };
 
 const buildStandaloneDocument = async (element, pageTitle) => {
-  // Clone rather than mutate the live, on-screen element — swapping its
-  // images to (much larger) data URIs in place would be a visible,
-  // pointless re-render of the real page the whole time this runs.
+  // Clone rather than mutate the live, on-screen element.
   const clone = element.cloneNode(true);
-  const images = Array.from(clone.querySelectorAll('img'));
-  await Promise.all(
-    images.map((img) =>
-      imageElementToDataUrl(img).catch(() => {
-        // Best-effort: if a fetch fails (offline, image moved), leave the
-        // original src rather than breaking the whole export over one image.
-      })
-    )
-  );
+  const mediaCss = inlineStyles(element, clone);
+  toAbsoluteImageUrls(clone);
 
   const markup = clone.outerHTML;
   return `<!doctype html>
@@ -54,7 +76,7 @@ const buildStandaloneDocument = async (element, pageTitle) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${pageTitle}</title>
+    <title>${pageTitle}</title>${mediaCss ? `\n    <style>\n${mediaCss}\n    </style>` : ''}
   </head>
   <body style="margin:0;">
 ${markup}
