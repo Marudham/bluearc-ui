@@ -53,16 +53,21 @@ const CampaignLandingPage = ({
   // exportHtml.js) so the HTML is genuinely self-contained — that means a
   // real fetch+encode step per image, not an instant string op, so show a
   // "preparing" state rather than leaving the button looking unresponsive.
+  // The export is generated from the same content props the page renders —
+  // a table-based email template, not a copy of this page's DOM (see
+  // exportHtml.js for why).
+  const exportContent = { pageTitle, kicker, brandName, brandLogo, headline, subheadline, bullets, screenshot, ctaText, ctaHref, ctaNote, footerNote };
+
   const handleCopy = async () => {
     setExportStatus({ type: 'pending', message: 'Preparing…' });
-    const result = await copyLandingPageHtml(pageId, pageTitle);
+    const result = await copyLandingPageHtml(exportContent);
     setExportStatus(result.ok ? { type: 'success', message: 'Copied — paste it into your campaign tool.' } : { type: 'error', message: result.error });
     setTimeout(() => setExportStatus(null), 4000);
   };
 
   const handleDownload = async () => {
     setExportStatus({ type: 'pending', message: 'Preparing…' });
-    const result = await downloadLandingPageHtml(pageId, pageTitle, `${pageId}.html`);
+    const result = await downloadLandingPageHtml(exportContent, `${pageId}.html`);
     setExportStatus(result.ok ? { type: 'success', message: 'Downloaded.' } : { type: 'error', message: result.error });
     setTimeout(() => setExportStatus(null), 4000);
   };
